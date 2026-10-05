@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Attos — Agentes Humanos para tu negocio</title>
+<meta name="description" content="Agentes que conversan como una persona: atienden, califican y resuelven por tu negocio, las 24 horas. Diseñados a medida por Gianni Scandriolo.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' style=%27background:%23000%27 viewBox='0 0 264 190' role='img' aria-label='Attos'%3E%3Cpath fill='%23f5f5f5' d='M21.3 156.2C31.5 141.3 46.6 127.3 61.0 119.2C74.1 111.9 96.9 106.7 105.2 109.2C112.2 111.2 119.0 118.9 122.9 129.0C126.9 139.3 129.8 151.8 130.6 162.8C131.0 167.3 131.6 171.0 132.0 171.0C132.4 171.0 133.0 167.3 133.4 162.8C134.2 151.8 137.1 139.3 141.1 129.0C145.0 118.9 151.8 111.2 158.8 109.2C167.1 106.7 185.7 110.7 200.5 118.2C222.0 129.0 239.2 147.3 254.0 175.1L260.1 186.5L259.5 178.0C257.3 146.3 250.2 124.6 235.2 103.6C222.4 85.8 208.6 73.6 177.9 52.9C151.5 35.1 139.1 22.6 134.2 8.8C133.3 6.2 132.3 4.0 132.0 4.0C131.7 4.0 130.7 6.2 129.7 8.9C124.9 22.6 112.2 35.4 86.2 52.8C56.0 73.1 43.4 84.2 30.2 101.9C14.2 123.3 6.8 145.2 4.5 178.0L3.9 186.5L10.0 175.1C13.3 168.9 18.4 160.3 21.3 156.2Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Attos — landing minimalista, oscura, monocromática.
+   Mobile first: la base es el celular; desde 768px tablet, desde 1100px escritorio.
+   ============================================================ */
+:root{
+  --bg:#000; --bg-2:#0a0a0a; --card:#0d0d0d; --line:#1f1f1f; --line-2:#2c2c2c;
+  --fg:#f5f5f5; --fg-2:#a3a3a3; --fg-3:#6b6b6b;
+  --f:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --pad:20px; --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f);font-weight:400;line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-2)}
+.h-sec{font-weight:300;text-transform:uppercase;letter-spacing:-.02em;line-height:1.05;
+  font-size:clamp(30px,7.5vw,56px);margin-top:14px}
+.lead{color:var(--fg-2);font-size:15px;margin-top:16px;max-width:520px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+section{padding:72px 0}
+.dk{display:none}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;
+  border-radius:999px;font-size:14px;font-weight:500;transition:background .3s var(--ease),color .3s var(--ease),transform .3s var(--ease),border-color .3s}
+.btn:active{transform:scale(.97)}
+.btn-fill{background:var(--fg);color:#000}
+.btn-fill:hover{background:#d9d9d9}
+.btn-line{border:1px solid var(--line-2);color:var(--fg)}
+.btn-line:hover{border-color:var(--fg)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+
+/* Encabezado */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s var(--ease),border-color .4s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(0,0,0,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;letter-spacing:-.015em;font-size:18px;display:flex;align-items:center;gap:10px;color:#fff;text-shadow:0 0 .6px #fff,0 0 12px rgba(255,255,255,.22)}
+.logo-mark{width:26px;height:19px;display:block;color:#fff;filter:drop-shadow(0 0 6px rgba(255,255,255,.25))}
+.menu{display:none}
+.menu a{font-size:13px;color:var(--fg-2);transition:color .2s}
+.menu a:hover{color:var(--fg)}
+.nav .btn{height:38px;padding:0 16px;font-size:13px}
+.burger{width:40px;height:40px;display:flex;flex-direction:column;justify-content:center;gap:6px;align-items:flex-end}
+.burger span{display:block;height:1.5px;background:var(--fg);transition:transform .35s var(--ease),width .35s var(--ease)}
+.burger span:nth-child(1){width:22px}.burger span:nth-child(2){width:14px}
+.nav-cta{display:none}
+.drawer{position:fixed;inset:64px 0 0 0;background:#000;z-index:49;padding:28px var(--pad);display:flex;flex-direction:column;gap:6px;
+  transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.drawer a{font-size:28px;font-weight:300;padding:10px 0;border-bottom:1px solid var(--line)}
+.drawer .btn{margin-top:24px;font-size:15px}
+body.open .drawer{opacity:1;transform:none;pointer-events:auto}
+body.open .burger span:nth-child(1){transform:translateY(3.75px) rotate(45deg);width:22px}
+body.open .burger span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg);width:22px}
+
+/* Hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:110px 0 70px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -40% auto;height:80%;
+  background:radial-gradient(closest-side,rgba(255,255,255,.08),transparent 70%);pointer-events:none}
+.grid-bg{position:absolute;inset:0;opacity:.35;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 35%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 35%,#000 20%,transparent 70%)}
+.hero .wrap{position:relative;text-align:center}
+.hero h1{font-weight:300;letter-spacing:-.04em;line-height:1.02;font-size:clamp(40px,11vw,92px);margin-top:18px}
+.hero h1 b{font-weight:600}
+.nw{white-space:nowrap}
+/* "Agentes de IA" -> se va el "de", la palabra IA se tacha y se oscurece, y aparece "Humanos" */
+.swap{display:inline-flex;align-items:baseline;white-space:nowrap}
+.swap .de{display:inline-block;max-width:2em;overflow:hidden;margin-right:.22em;
+  transition:max-width .5s var(--ease),opacity .35s var(--ease),margin-right .5s var(--ease)}
+.swap .ia{position:relative;transition:color .5s var(--ease) .55s}
+.swap .ia::after{content:"";position:absolute;left:-.06em;right:-.06em;top:54%;height:.075em;background:currentColor;
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease) .45s}
+.swap .hum{max-width:0;opacity:0;overflow:hidden;filter:blur(6px);margin-left:0;
+  transition:max-width .9s var(--ease) 1s,opacity .7s var(--ease) 1.15s,filter .7s var(--ease) 1.15s,margin-left .9s var(--ease) 1s}
+.swap.done .de{max-width:0;opacity:0;margin-right:0}
+.swap.done .ia{color:#3f3f3f}
+.swap.done .ia::after{transform:scaleX(1)}
+.swap.done .hum{max-width:6em;opacity:1;filter:none;margin-left:.22em}
+.hero p{color:var(--fg-2);font-size:15px;margin:22px auto 0;max-width:460px;text-align:justify;text-align-last:center;hyphens:auto;-webkit-hyphens:auto}
+.hero .btns{justify-content:center}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px 6px 8px;font-size:12px;color:var(--fg-2)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--fg);box-shadow:0 0 0 0 rgba(255,255,255,.5);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.45)}70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:1px;height:42px;background:linear-gradient(var(--fg-3),transparent)}
+
+.scroll-hint{display:none}
+/* Servicios: tarjetas de agentes */
+.agents{display:grid;grid-template-columns:1fr;gap:12px;margin-top:40px}
+.agent{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;position:relative;
+  transition:border-color .35s var(--ease),transform .35s var(--ease),background .35s}
+.agent:hover{border-color:var(--line-2);transform:translateY(-2px);background:#101010}
+.agent .num{font-size:11px;color:var(--fg-3);letter-spacing:.18em}
+.agent h3{font-weight:500;font-size:19px;letter-spacing:-.01em;margin-top:26px}
+.agent p{color:var(--fg-2);font-size:14px;margin-top:8px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.agent .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.tag{font-size:11px;color:var(--fg-2);border:1px solid var(--line-2);border-radius:999px;padding:4px 10px}
+.agent .ico{position:absolute;top:20px;right:20px;width:34px;height:34px;border:1px solid var(--line-2);border-radius:10px;display:grid;place-items:center}
+.agent .ico svg{width:16px;height:16px;stroke:var(--fg);fill:none;stroke-width:1.5}
+
+/* Demo: conversación de ejemplo */
+.demo{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+.phone{width:100%;max-width:360px;margin:0 auto;background:#050505;border:1px solid var(--line-2);border-radius:34px;padding:12px;
+  box-shadow:0 40px 80px -30px rgba(255,255,255,.08)}
+.screen{border-radius:24px;background:var(--bg-2);overflow:hidden;border:1px solid var(--line)}
+.chat-top{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--fg);color:#000;display:grid;place-items:center;font-size:12px;font-weight:600}
+.chat-top b{font-weight:500;font-size:14px;display:block}
+.chat-top small{color:var(--fg-3);font-size:11px}
+.chat{height:380px;padding:16px;display:flex;flex-direction:column;gap:8px;overflow:hidden;justify-content:flex-end}
+.msg{max-width:82%;font-size:13px;line-height:1.45;padding:9px 12px;border-radius:14px;opacity:0;transform:translateY(8px);
+  transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.msg.in{opacity:1;transform:none}
+.msg.user{align-self:flex-end;background:var(--fg);color:#000;border-bottom-right-radius:4px}
+.msg.bot{align-self:flex-start;background:#161616;border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg.sys{align-self:center;background:none;color:var(--fg-3);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:12px 14px;background:#161616;border:1px solid var(--line);border-radius:14px;opacity:0;transition:opacity .3s}
+.typing.in{opacity:1}
+.typing i{width:5px;height:5px;border-radius:50%;background:var(--fg-2);animation:blink 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.demo-note{color:var(--fg-3);font-size:12px;margin-top:14px;text-align:center}
+.checks{list-style:none;margin-top:26px;display:grid;gap:14px}
+.checks li{display:flex;gap:12px;font-size:15px;color:var(--fg-2)}
+.checks li::before{content:"";flex:0 0 18px;height:18px;margin-top:3px;border:1px solid var(--line-2);border-radius:50%;
+  background:radial-gradient(circle,var(--fg) 0 3px,transparent 3.5px)}
+.checks b{color:var(--fg);font-weight:500}
+
+/* La diferencia: plantilla vs. conversación */
+.vs{display:grid;grid-template-columns:1fr;gap:12px;margin-top:40px}
+.vs-card{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--card);display:flex;flex-direction:column;gap:10px}
+.vs-card.new{border-color:var(--line-2);background:#111}
+.vs-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-2);margin-bottom:6px}
+.vs-card.old .vs-tag{color:var(--fg-3)}
+.bub{max-width:88%;font-size:13px;line-height:1.45;padding:9px 12px;border-radius:14px}
+.bub.u{align-self:flex-end;background:var(--fg);color:#000;border-bottom-right-radius:4px}
+.bub.b{align-self:flex-start;background:#181818;border:1px solid var(--line);border-bottom-left-radius:4px}
+.vs-card.old .bub.b{color:var(--fg-3);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.vs-card ul{list-style:none;margin-top:10px;display:grid;gap:8px;font-size:13px;color:var(--fg-2)}
+.vs-card ul li{padding-left:18px;position:relative}
+.vs-card.old ul li::before{content:"–";position:absolute;left:0;color:var(--fg-3)}
+.vs-card.new ul li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;background:var(--fg)}
+.vs-card.old ul li{color:var(--fg-3)}
+/* Cinta de rubros */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0}
+.marquee-track{display:flex;gap:28px;width:max-content;animation:scroll 38s linear infinite}
+.marquee span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-2);white-space:nowrap}
+.marquee .star{color:var(--fg-3)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Pilares */
+.stats{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+.stat{padding:34px 0;border-bottom:1px solid var(--line);text-align:center}
+.stat .big{font-weight:600;letter-spacing:-.04em;font-size:clamp(46px,12vw,72px);line-height:1}
+.stat p{color:var(--fg-2);font-size:13px;margin-top:10px}
+
+/* Proceso */
+.steps{display:grid;grid-template-columns:1fr;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.step{padding:26px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:6px 14px}
+.step .n{font-size:12px;color:var(--fg-3);letter-spacing:.12em;padding-top:4px}
+.step h4{font-weight:500;font-size:18px}
+.step p{grid-column:2;color:var(--fg-2);font-size:14px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+
+/* Por qué */
+.why{display:grid;grid-template-columns:1fr;gap:28px;margin-top:40px}
+.why .n{font-size:11px;color:var(--fg-3)}
+.why h4{font-weight:500;font-size:17px;margin-top:8px}
+.why p{color:var(--fg-2);font-size:14px;margin-top:4px}
+
+/* FAQ */
+.faq{max-width:780px;margin:40px auto 0;border-top:1px solid var(--line)}
+.q{border-bottom:1px solid var(--line)}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;text-align:left;padding:20px 0;font-size:15px;font-weight:500}
+.q .plus{flex:0 0 18px;height:18px;position:relative}
+.q .plus::before,.q .plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--fg);transform:translate(-50%,-50%);transition:transform .35s var(--ease)}
+.q .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.q.open .plus::after{transform:translate(-50%,-50%) rotate(0)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.q.open .a{grid-template-rows:1fr}
+.q .a > div{overflow:hidden}
+.q .a p{color:var(--fg-2);font-size:14px;padding:0 0 20px;max-width:640px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+
+/* CTA final */
+.final{text-align:center;padding:96px 0}
+.final h2{font-weight:300;letter-spacing:-.035em;line-height:1.05;font-size:clamp(34px,9vw,72px)}
+.final h2 b{font-weight:600}
+.final p{color:var(--fg-2);margin:18px auto 0;max-width:460px;font-size:15px;text-align:justify;text-align-last:center;hyphens:auto;-webkit-hyphens:auto}
+.final .btns{justify-content:center}
+
+/* Pie */
+footer{border-top:1px solid var(--line);padding:48px 0 30px}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px 20px}
+.f-brand{grid-column:1/-1}
+.f-brand p{color:var(--fg-2);font-size:13px;margin-top:12px;max-width:320px}
+.f-col h5{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-3);font-weight:500;margin-bottom:14px}
+.f-col a{display:block;font-size:13px;color:var(--fg-2);padding:4px 0;transition:color .2s}
+.f-col a:hover{color:var(--fg)}
+.f-bottom{display:flex;flex-direction:column;gap:10px;margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:var(--fg-3)}
+.f-bottom nav{display:flex;flex-wrap:wrap;gap:16px}
+
+/* Aparición al hacer scroll */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.on{opacity:1;transform:none}
+
+/* ---------- Tablet (768px+) ---------- */
+@media (min-width:768px){
+  :root{--pad:36px}
+  section{padding:104px 0}
+  .agents{grid-template-columns:1fr 1fr;gap:14px}
+  .vs{grid-template-columns:1fr 1fr;gap:14px}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .stat{border-bottom:0;border-right:1px solid var(--line);padding:46px 16px}
+  .stat:last-child{border-right:0}
+  .why{grid-template-columns:repeat(3,1fr)}
+  .f-grid{grid-template-columns:2fr 1fr 1fr 1fr}
+  .f-brand{grid-column:auto}
+  .f-bottom{flex-direction:row;justify-content:space-between;align-items:center}
+}
+
+/* ---------- Escritorio (1100px+) ---------- */
+@media (min-width:1100px){
+  :root{--pad:48px}
+  .dk{display:inline}
+  .menu{display:flex;gap:30px}
+  .burger{display:none}
+  .nav-cta{display:inline-flex}
+  .drawer{display:none}
+  .agents{grid-template-columns:repeat(4,1fr)}
+  .agent{min-height:300px;display:flex;flex-direction:column}
+  .agent .tags{margin-top:auto;padding-top:18px}
+  .demo{grid-template-columns:1.05fr .95fr;gap:80px}
+  .phone{margin:0 0 0 auto}
+  .steps{grid-template-columns:repeat(4,1fr);border-top:0}
+  .step{grid-template-columns:1fr;border-bottom:0;border-top:1px solid var(--line);padding:24px 24px 0 0}
+  .step p{grid-column:1}
+  .hero p{font-size:17px;max-width:540px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}.msg{opacity:1;transform:none}
+  .swap .hum{max-width:6em;opacity:1;filter:none;margin-left:.22em}.swap .de{max-width:0;opacity:0;margin-right:0}.swap .ia{color:#3f3f3f}.swap .ia::after{transform:scaleX(1)}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="Inicio"><svg class="logo-mark" viewBox="0 0 264 190" aria-hidden="true"><path fill="currentColor" d="M21.3 156.2C31.5 141.3 46.6 127.3 61.0 119.2C74.1 111.9 96.9 106.7 105.2 109.2C112.2 111.2 119.0 118.9 122.9 129.0C126.9 139.3 129.8 151.8 130.6 162.8C131.0 167.3 131.6 171.0 132.0 171.0C132.4 171.0 133.0 167.3 133.4 162.8C134.2 151.8 137.1 139.3 141.1 129.0C145.0 118.9 151.8 111.2 158.8 109.2C167.1 106.7 185.7 110.7 200.5 118.2C222.0 129.0 239.2 147.3 254.0 175.1L260.1 186.5L259.5 178.0C257.3 146.3 250.2 124.6 235.2 103.6C222.4 85.8 208.6 73.6 177.9 52.9C151.5 35.1 139.1 22.6 134.2 8.8C133.3 6.2 132.3 4.0 132.0 4.0C131.7 4.0 130.7 6.2 129.7 8.9C124.9 22.6 112.2 35.4 86.2 52.8C56.0 73.1 43.4 84.2 30.2 101.9C14.2 123.3 6.8 145.2 4.5 178.0L3.9 186.5L10.0 175.1C13.3 168.9 18.4 160.3 21.3 156.2Z"/></svg><span data-brand>Attos</span></a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#agentes">Agentes</a>
+      <a href="#diferencia">La diferencia</a>
+      <a href="#demo">Cómo trabaja</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-fill nav-cta" data-contact href="#contacto">Hablemos →</a>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" aria-hidden="true">
+  <a href="#agentes">Agentes</a>
+  <a href="#demo">Cómo trabaja</a>
+  <a href="#proceso">Proceso</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn btn-fill" data-contact href="#contacto">Hablemos →</a>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <span class="pill rv"><span class="dot"></span>Agentes conversacionales a medida</span>
+      <h1 class="rv">Tu negocio,<br>atendido por <b class="nw">Agentes</b> <span class="swap" aria-label="Humanos"><b class="de" aria-hidden="true">de</b><b class="ia" aria-hidden="true">IA</b><b class="hum">Humanos</b></span>.</h1>
+      <p class="rv">Responden, califican y resuelven por vos, las 24 horas. Sin contratar más personal. Sin código. Sin esperas.</p>
+      <div class="btns rv">
+        <a class="btn btn-fill" data-contact href="#contacto">Quiero mi agente →</a>
+        <a class="btn btn-line" href="#demo">Ver cómo trabaja</a>
+      </div>
+    </div>
+    <span class="scroll-hint" aria-hidden="true"></span>
+  </section>
+
+  <!-- 01 AGENTES -->
+  <section id="agentes">
+    <div class="wrap">
+      <span class="eyebrow rv">01 — Agentes</span>
+      <h2 class="h-sec rv">Un equipo que no duerme, <br class="dk">hecho para tu negocio</h2>
+      <p class="lead rv">Cada agente se diseña para una tarea concreta y se conecta a las herramientas que ya usás.</p>
+      <div class="agents">
+        <article class="agent rv">
+          <span class="num">01</span>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></span>
+          <h3>Atención al cliente</h3>
+          <p>Contesta en WhatsApp, Instagram o tu web al instante, con el tono de tu marca, y deriva a una persona cuando hace falta.</p>
+          <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Instagram</span><span class="tag">Web</span></div>
+        </article>
+        <article class="agent rv">
+          <span class="num">02</span>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></span>
+          <h3>Calificación de clientes</h3>
+          <p>Hace las preguntas correctas, separa curiosos de interesados y te pasa solo las oportunidades listas para cerrar.</p>
+          <div class="tags"><span class="tag">Leads</span><span class="tag">CRM</span></div>
+        </article>
+        <article class="agent rv">
+          <span class="num">03</span>
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span>
+          <h3>Turnos y reservas</h3>
+          <p>Agenda, confirma, reprograma y recuerda citas sin que tengas que tocar el calendario.</p>
+          <div class="tags"><span class="tag">Calendario</span><span class="tag">Recordatorios</span></div>
+        </article>
+        <article class="agent rv">
+          <span class="num">04</span>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h10M4 12h16M4 17h7"/><circle cx="18" cy="7" r="2"/><circle cx="15" cy="17" r="2"/></svg></span>
+          <h3>Procesos internos</h3>
+          <p>Automatiza tareas repetitivas: carga de datos, reportes, seguimiento de pedidos y avisos a tu equipo.</p>
+          <div class="tags"><span class="tag">Workflows</span><span class="tag">Integraciones</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LA DIFERENCIA -->
+  <section id="diferencia" style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow rv">La diferencia</span>
+      <h2 class="h-sec rv">No responde con plantillas. <br class="dk">Conversa.</h2>
+      <p class="lead rv">La mayoría de los asistentes contestan siempre lo mismo y obligan al cliente a adaptarse a ellos. Un Agente Humano se adapta al cliente.</p>
+      <div class="vs">
+        <div class="vs-card old rv">
+          <span class="vs-tag">Chatbot de plantilla</span>
+          <div class="bub u">Hola, ¿tienen turno el viernes a la tarde? Es para mi hija de 8 años</div>
+          <div class="bub b">Seleccione una opción:<br>1) Turnos<br>2) Precios<br>3) Hablar con un asesor</div>
+          <ul><li>Responde lo mismo a todos</li><li>No entiende lo que no está en el menú</li><li>Termina derivando todo a una persona</li></ul>
+        </div>
+        <div class="vs-card new rv">
+          <span class="vs-tag">Agente Humano</span>
+          <div class="bub u">Hola, ¿tienen turno el viernes a la tarde? Es para mi hija de 8 años</div>
+          <div class="bub b">¡Hola! Sí, el viernes tengo a las 16:30 y a las 18:00 con la odontopediatra. ¿Cuál les queda mejor?</div>
+          <ul><li>Entiende la consulta completa, no palabras sueltas</li><li>Recuerda lo que ya se habló y pregunta lo que falta</li><li>Resuelve de punta a punta y te deja el resumen</li></ul>
+        </div>
+      </div>
+      <p class="demo-note" style="text-align:left">Conversaciones de ejemplo.</p>
+    </div>
+  </section>
+
+  <!-- CINTA DE RUBROS -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee"></div>
+  </div>
+
+  <!-- 02 DEMO -->
+  <section id="demo">
+    <div class="wrap demo">
+      <div>
+        <span class="eyebrow rv">02 — Cómo trabaja</span>
+        <h2 class="h-sec rv">Conversa como <br class="dk">una persona. <br class="dk">Trabaja como <br class="dk">un sistema.</h2>
+        <ul class="checks rv">
+          <li><span><b>Entiende el contexto.</b> Lee la consulta completa y responde con la información real de tu negocio.</span></li>
+          <li><span><b>Hace el trabajo.</b> No solo contesta: agenda, registra y avisa.</span></li>
+          <li><span><b>Sabe cuándo parar.</b> Si la conversación lo necesita, te la pasa a vos.</span></li>
+        </ul>
+      </div>
+      <div class="rv">
+        <div class="phone">
+          <div class="screen">
+            <div class="chat-top"><span class="avatar">C</span><span><b>Asistente · Clínica</b><small>en línea</small></span></div>
+            <div class="chat" id="chat"></div>
+          </div>
+        </div>
+        <p class="demo-note">Conversación de ejemplo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat rv"><div class="big">24/7</div><p>atención sin horarios ni feriados</p></div>
+        <div class="stat rv"><div class="big">0</div><p>líneas de código para vos</p></div>
+        <div class="stat rv"><div class="big">1</div><p>persona que te acompaña de punta a punta</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 PROCESO -->
+  <section id="proceso" style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow rv">03 — Proceso</span>
+      <h2 class="h-sec rv">De la idea a un agente <br class="dk">trabajando</h2>
+      <div class="steps">
+        <div class="step rv"><span class="n">01</span><h4>Diagnóstico</h4><p>Vemos juntos qué tareas te consumen más tiempo y dónde un agente suma de verdad.</p></div>
+        <div class="step rv"><span class="n">02</span><h4>Diseño</h4><p>Definimos qué hace, qué sabe, cómo habla y cuándo te deriva una conversación.</p></div>
+        <div class="step rv"><span class="n">03</span><h4>Integración</h4><p>Lo conectamos a tus canales y herramientas, y lo probamos con casos reales antes de activarlo.</p></div>
+        <div class="step rv"><span class="n">04</span><h4>Mejora continua</h4><p>Revisamos sus conversaciones y lo ajustamos para que cada semana resuelva mejor.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow rv">Por qué</span>
+      <h2 class="h-sec rv">Más tiempo para <br class="dk">lo que importa</h2>
+      <div class="why">
+        <div class="rv"><span class="n">01</span><h4>Hecho a medida</h4><p>Nada de plantillas genéricas: tu agente conoce tu negocio.</p></div>
+        <div class="rv"><span class="n">02</span><h4>Siempre disponible</h4><p>Tus clientes reciben respuesta en el momento, a cualquier hora.</p></div>
+        <div class="rv"><span class="n">03</span><h4>Bajo tu control</h4><p>Vos decidís qué puede hacer y qué queda en manos de tu equipo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div style="text-align:center">
+        <span class="eyebrow rv">FAQ</span>
+        <h2 class="h-sec rv">Preguntas frecuentes</h2>
+      </div>
+      <div class="faq" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="final" id="contacto">
+    <div class="wrap">
+      <span class="eyebrow rv">Hablemos</span>
+      <h2 class="rv">Contame qué te quita tiempo. <br class="dk"><b>Lo resolvemos con un agente.</b></h2>
+      <p class="rv">Una charla corta, sin compromiso, para ver si un Agente Humano tiene sentido en tu negocio.</p>
+      <div class="btns rv">
+        <a class="btn btn-fill" data-contact href="#contacto">Escribime por WhatsApp →</a>
+        <a class="btn btn-line" data-mail href="#contacto">Enviar un correo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a href="#top" class="logo"><svg class="logo-mark" viewBox="0 0 264 190" aria-hidden="true"><path fill="currentColor" d="M21.3 156.2C31.5 141.3 46.6 127.3 61.0 119.2C74.1 111.9 96.9 106.7 105.2 109.2C112.2 111.2 119.0 118.9 122.9 129.0C126.9 139.3 129.8 151.8 130.6 162.8C131.0 167.3 131.6 171.0 132.0 171.0C132.4 171.0 133.0 167.3 133.4 162.8C134.2 151.8 137.1 139.3 141.1 129.0C145.0 118.9 151.8 111.2 158.8 109.2C167.1 106.7 185.7 110.7 200.5 118.2C222.0 129.0 239.2 147.3 254.0 175.1L260.1 186.5L259.5 178.0C257.3 146.3 250.2 124.6 235.2 103.6C222.4 85.8 208.6 73.6 177.9 52.9C151.5 35.1 139.1 22.6 134.2 8.8C133.3 6.2 132.3 4.0 132.0 4.0C131.7 4.0 130.7 6.2 129.7 8.9C124.9 22.6 112.2 35.4 86.2 52.8C56.0 73.1 43.4 84.2 30.2 101.9C14.2 123.3 6.8 145.2 4.5 178.0L3.9 186.5L10.0 175.1C13.3 168.9 18.4 160.3 21.3 156.2Z"/></svg><span data-brand>Attos</span></a>
+        <p>Agentes que conversan como una persona, a medida para negocios que quieren atender mejor y trabajar menos. Por Gianni Scandriolo.</p>
+      </div>
+      <div class="f-col"><h5>Servicios</h5><a href="#agentes">Atención al cliente</a><a href="#agentes">Calificación</a><a href="#agentes">Turnos y reservas</a><a href="#agentes">Procesos internos</a></div>
+      <div class="f-col"><h5>Navegación</h5><a href="#demo">Cómo trabaja</a><a href="#proceso">Proceso</a><a href="#faq">FAQ</a></div>
+      <div class="f-col"><h5>Contacto</h5><a data-contact href="#contacto">WhatsApp</a><a data-mail href="#contacto">Correo</a></div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="yr"></span> <span data-brand>Attos</span>. Todos los derechos reservados.</span>
+      <nav><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Configuración (completar cuando estén definidos) ---------- */
+const CONFIG = {
+  brand: "Attos",
+  whatsapp: "",                 // número con código de país, sin + ni espacios (ej. 5959XXXXXXXX)
+  whatsappText: "Hola Gianni, quiero información sobre un Agente Humano para mi negocio.",
+  email: ""                     // correo de contacto
+};
+document.querySelectorAll("[data-brand]").forEach(e => e.textContent = CONFIG.brand);
+document.getElementById("yr").textContent = new Date().getFullYear();
+if (CONFIG.whatsapp) document.querySelectorAll("[data-contact]").forEach(a => {
+  a.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.whatsappText);
+  a.target = "_blank"; a.rel = "noopener";
+});
+if (CONFIG.email) document.querySelectorAll("[data-mail]").forEach(a => a.href = "mailto:" + CONFIG.email);
+
+/* Portada: tacha "IA" y escribe "humanos" */
+const sw = document.querySelector(".swap");
+const h1 = sw.closest("h1");
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) sw.classList.add("done");
+else {
+  // espera a que el título termine de aparecer y deja leer "Agentes de IA" un segundo y medio
+  const go = () => setTimeout(() => sw.classList.add("done"), 800 + 1500);
+  if (h1.classList.contains("on")) go();
+  else new MutationObserver((m, o) => { if (h1.classList.contains("on")) { o.disconnect(); go(); } }).observe(h1, {attributes:true, attributeFilter:["class"]});
+}
+
+/* Encabezado al hacer scroll */
+const header = document.querySelector("header");
+const onScroll = () => header.classList.toggle("scrolled", scrollY > 20);
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+/* Menú del celular */
+const burger = document.querySelector(".burger"), drawer = document.querySelector(".drawer");
+const toggle = (open) => {
+  document.body.classList.toggle("open", open);
+  burger.setAttribute("aria-expanded", open); drawer.setAttribute("aria-hidden", !open);
+  document.body.style.overflow = open ? "hidden" : "";
+};
+burger.addEventListener("click", () => toggle(!document.body.classList.contains("open")));
+drawer.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggle(false)));
+
+/* Cinta de rubros */
+const rubros = ["Clínicas","E-commerce","Inmobiliarias","Estética","Restaurantes","Academias","Gimnasios","Servicios profesionales","Hoteles","Concesionarias"];
+const half = rubros.map(r => `<span>${r}</span><span class="star">✦</span>`).join("");
+document.getElementById("marquee").innerHTML = half + half;
+
+/* FAQ */
+const faqs = [
+  ["¿Qué es un Agente Humano?","Un asistente digital que conversa como una persona: entiende lo que le escriben aunque no usen las palabras exactas, recuerda lo que ya se habló, pregunta lo que falta y hace el trabajo (agenda, registra, avisa). No es un menú de opciones ni respuestas de plantilla."],
+  ["¿Tus clientes van a creer que hablan con una persona?","Conversa como una persona, pero no se hace pasar por una: si alguien pregunta, responde con honestidad que es un asistente digital del negocio. La calidez está en cómo atiende, no en ocultar qué es."],
+  ["¿Necesito saber de tecnología?","No. Yo me encargo del diseño, la configuración y la integración. Vos me contás cómo funciona tu negocio y revisás que el agente responda como querés."],
+  ["¿Con qué canales y herramientas funciona?","WhatsApp, Instagram, la web y las herramientas que ya uses (calendario, planillas, CRM, sistemas de gestión). Lo vemos caso por caso en la primera charla."],
+  ["¿Qué pasa si el agente no sabe responder algo?","Se lo decimos desde el diseño: cuando una consulta se sale de lo que puede resolver, deriva la conversación a una persona de tu equipo."],
+  ["¿Cuánto cuesta?","Depende de qué tiene que hacer el agente y con cuántas herramientas se conecta. Te paso un presupuesto claro después de la primera charla."],
+  ["¿Mis datos y los de mis clientes están seguros?","Se trabaja solo con la información necesaria para la tarea y se define desde el inicio qué puede ver y qué no el agente."]
+];
+document.getElementById("faqList").innerHTML = faqs.map(([q,a]) =>
+  `<div class="q rv"><button aria-expanded="false"><span>${q}</span><span class="plus"></span></button><div class="a"><div><p>${a}</p></div></div></div>`).join("");
+document.querySelectorAll(".q button").forEach(b => b.addEventListener("click", () => {
+  const q = b.parentElement, open = !q.classList.contains("open");
+  q.classList.toggle("open", open); b.setAttribute("aria-expanded", open);
+}));
+
+/* Aparición al hacer scroll */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+/* Conversación de ejemplo (se reproduce al entrar en pantalla, en bucle) */
+const script = [
+  ["sys","Hoy 22:47"],
+  ["user","Hola, ¿tienen turno para limpieza dental esta semana?"],
+  ["bot","¡Hola! Sí, tengo jueves a las 10:00 o viernes a las 16:30. ¿Cuál te queda mejor?"],
+  ["user","El viernes"],
+  ["bot","Listo, reservado: viernes 16:30. ¿Me pasás tu nombre completo para confirmarlo?"],
+  ["user","Laura Gómez"],
+  ["bot","Gracias, Laura. Te llega el recordatorio el jueves. Si necesitás cambiarlo, escribime por acá."],
+  ["sys","Turno agendado · equipo avisado"]
+];
+const chat = document.getElementById("chat");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let playing = false;
+const wait = ms => new Promise(r => setTimeout(r, ms));
+async function play(){
+  if (playing) return; playing = true;
+  while (true){
+    chat.innerHTML = "";
+    for (const [who, text] of script){
+      if (who === "bot" && !reduce){
+        const t = document.createElement("div"); t.className = "typing"; t.innerHTML = "<i></i><i></i><i></i>";
+        chat.appendChild(t); requestAnimationFrame(() => t.classList.add("in")); await wait(1100); t.remove();
+      }
+      const m = document.createElement("div"); m.className = "msg " + who; m.textContent = text; chat.appendChild(m);
+      requestAnimationFrame(() => requestAnimationFrame(() => m.classList.add("in")));
+      await wait(who === "user" ? 1300 : 900);
+    }
+    if (reduce) return;
+    await wait(4500);
+  }
+}
+new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting){ play(); o.disconnect(); } }), {threshold:.3}).observe(chat);
+</script>
+</body>
+</html>
