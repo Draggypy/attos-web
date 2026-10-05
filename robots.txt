@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://attos.me/sitemap.xml
