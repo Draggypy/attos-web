@@ -1,0 +1,5 @@
+Contact: mailto:gianniscandriolo@gmail.com
+Expires: 2027-10-05T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://attos.me/.well-known/security.txt
+Policy: https://attos.me/legal.html#seguridad

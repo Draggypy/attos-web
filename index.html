@@ -7,10 +7,13 @@
 <meta name="description" content="Agentes que conversan como una persona: atienden, califican y resuelven por tu negocio, las 24 horas. Diseñados a medida por Gianni Scandriolo.">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' style=%27background:%23000%27 viewBox='0 0 264 190' role='img' aria-label='Attos'%3E%3Cpath fill='%23f5f5f5' d='M21.3 156.2C31.5 141.3 46.6 127.3 61.0 119.2C74.1 111.9 96.9 106.7 105.2 109.2C112.2 111.2 119.0 118.9 122.9 129.0C126.9 139.3 129.8 151.8 130.6 162.8C131.0 167.3 131.6 171.0 132.0 171.0C132.4 171.0 133.0 167.3 133.4 162.8C134.2 151.8 137.1 139.3 141.1 129.0C145.0 118.9 151.8 111.2 158.8 109.2C167.1 106.7 185.7 110.7 200.5 118.2C222.0 129.0 239.2 147.3 254.0 175.1L260.1 186.5L259.5 178.0C257.3 146.3 250.2 124.6 235.2 103.6C222.4 85.8 208.6 73.6 177.9 52.9C151.5 35.1 139.1 22.6 134.2 8.8C133.3 6.2 132.3 4.0 132.0 4.0C131.7 4.0 130.7 6.2 129.7 8.9C124.9 22.6 112.2 35.4 86.2 52.8C56.0 73.1 43.4 84.2 30.2 101.9C14.2 123.3 6.8 145.2 4.5 178.0L3.9 186.5L10.0 175.1C13.3 168.9 18.4 160.3 21.3 156.2Z'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Tipografía servida desde el propio sitio: ningún pedido a terceros (Google Fonts) al abrir la página. */
+@font-face{font-family:'Inter';font-style:normal;font-weight:300 700;font-display:swap;src:url(assets/fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:300 700;font-display:swap;src:url(assets/fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* ============================================================
    Attos — landing minimalista, oscura, monocromática.
    Mobile first: la base es el celular; desde 768px tablet, desde 1100px escritorio.
@@ -208,7 +211,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 30px}
 .f-brand{grid-column:1/-1}
 .f-brand p{color:var(--fg-2);font-size:13px;margin-top:12px;max-width:320px}
 .f-col h5{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-3);font-weight:500;margin-bottom:14px}
-.f-col a{display:block;font-size:13px;color:var(--fg-2);padding:4px 0;transition:color .2s}
+.f-col a{display:block;font-size:13px;color:var(--fg-2);padding:4px 0;transition:color .2s;overflow-wrap:anywhere}
 .f-col a:hover{color:var(--fg)}
 .f-bottom{display:flex;flex-direction:column;gap:10px;margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:var(--fg-3)}
 .f-bottom nav{display:flex;flex-wrap:wrap;gap:16px}
@@ -462,11 +465,11 @@ footer{border-top:1px solid var(--line);padding:48px 0 30px}
       </div>
       <div class="f-col"><h5>Servicios</h5><a href="#agentes">Atención al cliente</a><a href="#agentes">Calificación</a><a href="#agentes">Turnos y reservas</a><a href="#agentes">Procesos internos</a></div>
       <div class="f-col"><h5>Navegación</h5><a href="#demo">Cómo trabaja</a><a href="#proceso">Proceso</a><a href="#faq">FAQ</a></div>
-      <div class="f-col"><h5>Contacto</h5><a data-contact href="#contacto">WhatsApp</a><a data-mail href="#contacto">Correo</a></div>
+      <div class="f-col"><h5>Contacto</h5><a data-contact href="#contacto">WhatsApp +595 973 319 179</a><a data-mail href="#contacto">gianniscandriolo@gmail.com</a></div>
     </div>
     <div class="f-bottom">
-      <span>© <span id="yr"></span> <span data-brand>Attos</span>. Todos los derechos reservados.</span>
-      <nav><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></nav>
+      <span>© <span id="yr"></span> <span data-brand>Attos</span> · Gianni Scandriolo · Paraguay. Todos los derechos reservados.</span>
+      <nav><a href="legal.html#aviso">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a></nav>
     </div>
   </div>
 </footer>
