@@ -272,10 +272,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 30px}
   .hero p{font-size:17px;max-width:540px}
 }
 
+/* «Reducir movimiento» viene activado en muchas PCs por rendimiento (Windows: «Efectos de animación» apagado).
+   Antes eso apagaba todo y en escritorio la web parecía rota; ahora sigue animada pero sin desplazamientos:
+   las cosas aparecen con un fundido, la cinta va más lenta y el scroll es directo. */
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .rv{opacity:1;transform:none}.msg{opacity:1;transform:none}
-  .swap .hum{max-width:6em;opacity:1;filter:none;margin-left:.22em}.swap .de{max-width:0;opacity:0;margin-right:0}.swap .ia{color:#3f3f3f}.swap .ia::after{transform:scaleX(1)}
+  html{scroll-behavior:auto}
+  .rv{transform:none;transition:opacity .7s var(--ease)}
+  .msg{transform:none;transition:opacity .45s var(--ease)}
+  .marquee-track{animation-duration:76s}
 }
 </style>
 <script type="application/ld+json">
@@ -524,13 +528,11 @@ if (CONFIG.email) document.querySelectorAll("[data-mail]").forEach(a => a.href =
 /* Portada: tacha "IA" y escribe "humanos" */
 const sw = document.querySelector(".swap");
 const h1 = sw.closest("h1");
-if (matchMedia("(prefers-reduced-motion: reduce)").matches) sw.classList.add("done");
-else {
-  // espera a que el título termine de aparecer y deja leer "Agentes de IA" un segundo y medio
-  const go = () => setTimeout(() => sw.classList.add("done"), 800 + 1500);
-  if (h1.classList.contains("on")) go();
-  else new MutationObserver((m, o) => { if (h1.classList.contains("on")) { o.disconnect(); go(); } }).observe(h1, {attributes:true, attributeFilter:["class"]});
-}
+// espera a que el título termine de aparecer y deja leer "Agentes de IA" un segundo y medio
+// (también con «reducir movimiento»: es el mensaje principal y el cambio es solo de palabras)
+const go = () => setTimeout(() => sw.classList.add("done"), 800 + 1500);
+if (h1.classList.contains("on")) go();
+else new MutationObserver((m, o) => { if (h1.classList.contains("on")) { o.disconnect(); go(); } }).observe(h1, {attributes:true, attributeFilter:["class"]});
 
 /* Encabezado al hacer scroll */
 const header = document.querySelector("header");
@@ -585,7 +587,6 @@ const script = [
   ["sys","Turno agendado · equipo avisado"]
 ];
 const chat = document.getElementById("chat");
-const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let playing = false;
 const wait = ms => new Promise(r => setTimeout(r, ms));
 async function play(){
@@ -593,7 +594,7 @@ async function play(){
   while (true){
     chat.innerHTML = "";
     for (const [who, text] of script){
-      if (who === "bot" && !reduce){
+      if (who === "bot"){
         const t = document.createElement("div"); t.className = "typing"; t.innerHTML = "<i></i><i></i><i></i>";
         chat.appendChild(t); requestAnimationFrame(() => t.classList.add("in")); await wait(1100); t.remove();
       }
@@ -601,7 +602,6 @@ async function play(){
       requestAnimationFrame(() => requestAnimationFrame(() => m.classList.add("in")));
       await wait(who === "user" ? 1300 : 900);
     }
-    if (reduce) return;
     await wait(4500);
   }
 }
