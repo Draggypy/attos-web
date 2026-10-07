@@ -141,8 +141,15 @@ body.open .burger span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg)
   background:radial-gradient(ellipse 40% 22% at 50% 0%,rgba(255,255,255,.075),transparent 70%),linear-gradient(#111 0%,#0a0a0a 18%,var(--bg) 40%);
   box-shadow:0 -24px 80px -10px rgba(255,255,255,.07)}
 .logos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:34px}
-.lc{height:62px;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);border-radius:12px;
-  background:linear-gradient(#141414,#0d0d0d);font-size:14px;color:#d4d4d4;letter-spacing:.01em}
+.lc{width:100%;height:62px;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);border-radius:12px;
+  background:linear-gradient(#141414,#0d0d0d);font-size:14px;color:#d4d4d4;letter-spacing:.01em;cursor:pointer;
+  transition:background .35s var(--ease),color .35s var(--ease),border-color .35s,box-shadow .35s var(--ease),transform .35s var(--ease)}
+.lc{position:relative;overflow:hidden}
+.lc:hover{border-color:var(--line-3);color:#fff}
+/* barra que se llena mientras los canales rotan solos */
+.lc::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:currentColor;opacity:.35;transform:scaleX(0);transform-origin:left center}
+.lc.on.corre::after{animation:llena var(--dur,9s) linear forwards}
+@keyframes llena{to{transform:scaleX(1)}}
 .lc svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.6}
 .lc.on{background:#f1f1f1;color:#000;border-color:#f1f1f1;box-shadow:0 0 0 5px rgba(255,255,255,.05),0 14px 44px -8px rgba(255,255,255,.22)}
 
@@ -152,6 +159,88 @@ body.open .burger span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg)
 .marquee span{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg-2);white-space:nowrap}
 .marquee .star{color:var(--fg-3)}
 @keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Escenario de los canales: cada botón muestra su animación */
+.canales .lead{margin-left:auto;margin-right:auto}
+/* las seis escenas ocupan la misma celda: el recuadro no cambia de alto al cambiar de canal */
+.escenario{display:grid;margin-top:14px;padding:22px;text-align:left}
+.esc{grid-area:1/1;display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+.esc[hidden]{display:grid;visibility:hidden}
+.esc-k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-3)}
+.esc-txt h3{font-weight:400;font-size:clamp(20px,4.6vw,27px);letter-spacing:-.02em;line-height:1.2;margin-top:10px}
+.esc-txt p{color:var(--fg-2);font-size:14px;margin-top:10px;line-height:1.6;max-width:390px}
+.esc-vis{position:relative;min-height:340px;display:grid;place-items:center}
+.mock{width:100%;max-width:390px;border:1px solid var(--line-2);border-radius:18px;background:linear-gradient(#151515,#0c0c0c);overflow:hidden;position:relative}
+.m-top{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.m-av{width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:#f1f1f1;color:#000;display:grid;place-items:center;font-size:12px;font-weight:600}
+.m-av.ring{box-shadow:0 0 0 2px #0c0c0c,0 0 0 3.5px #bdbdbd}
+.m-top b{font-size:13px;font-weight:500;display:block}
+.m-top small{font-size:11px;color:var(--fg-3)}
+.m-body{height:262px;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;overflow:hidden}
+.st{display:none}
+.st.in{display:block;animation:entra .45s var(--ease) both}
+.sv{opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.sv.in{opacity:1;transform:none}
+@keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.typ{align-self:flex-start;gap:4px;padding:10px 12px;background:#1b1b1b;border:1px solid var(--line);border-radius:12px}
+.typ.st.in{display:flex}
+.typ i{width:5px;height:5px;border-radius:50%;background:var(--fg-2);animation:blink 1.2s infinite}
+.typ i:nth-child(2){animation-delay:.2s}.typ i:nth-child(3){animation-delay:.4s}
+.m-sys{align-self:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3);padding:2px}
+.ig-ctx{align-self:flex-end;font-size:10.5px;color:var(--fg-3)}
+/* Tu web */
+.w-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);font-size:11px;color:var(--fg-3)}
+.w-bar i{width:7px;height:7px;border-radius:50%;background:#2a2a2a}
+.w-bar span{margin-left:8px;flex:1;background:#121212;border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.w-page{position:relative;height:306px;padding:16px}
+.w-l{display:block;height:9px;border-radius:5px;background:#1b1b1b;margin-bottom:9px}
+.w1{width:52%;height:15px!important}.w2{width:82%}.w3{width:66%}
+.w-img{height:84px;border-radius:10px;background:linear-gradient(135deg,#1a1a1a,#111);border:1px solid var(--line);margin-top:14px}
+.w-btn{position:absolute;right:14px;bottom:14px;width:42px;height:42px;border-radius:50%;background:#f1f1f1;place-items:center;box-shadow:0 8px 24px rgba(255,255,255,.18)}
+.w-btn.st.in{display:grid}
+.w-btn svg{width:18px;height:18px;stroke:#000;fill:none;stroke-width:1.8}
+.w-widget{position:absolute;right:12px;bottom:12px;width:min(270px,86%);border:1px solid var(--line-2);border-radius:14px;background:#0e0e0e;box-shadow:0 24px 48px -12px rgba(0,0,0,.95);overflow:hidden}
+.w-head{display:flex;align-items:center;gap:8px;padding:9px 11px;border-bottom:1px solid var(--line);font-size:12px}
+.w-head .m-av{width:22px;height:22px;flex-basis:22px;font-size:10px}
+.w-widget .m-body{height:214px}
+/* Calendario */
+.m-cal{padding:14px}
+.c-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:11.5px;color:var(--fg-3);margin-bottom:10px}
+.c-top b{color:var(--fg);font-weight:500;font-size:13px}
+.c-ask{display:flex;justify-content:flex-end;min-height:34px;margin-bottom:8px}
+.c-grid{display:grid;grid-template-columns:38px repeat(5,1fr);gap:4px}
+.c-h{font-size:10.5px;color:var(--fg-3);text-align:center}
+.c-hr{font-size:10.5px;color:var(--fg-3);align-self:center}
+.c-c{position:relative;height:30px;border-radius:7px;background:#121212;border:1px solid var(--line)}
+.c-c.oc{background:repeating-linear-gradient(135deg,#1b1b1b 0 6px,#141414 6px 12px)}
+.c-new{position:absolute;inset:-1px;border-radius:7px;background:#f1f1f1;color:#000;font-size:9.5px;font-weight:600;place-items:center;box-shadow:0 0 24px rgba(255,255,255,.4)}
+.c-new.st.in{display:grid}
+.c-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;min-height:58px;align-content:flex-start}
+.c-chip{font-size:11px;border:1px solid var(--line-2);border-radius:999px;padding:5px 10px;color:#d6d6d6;background:#111}
+.c-chip.st.in{display:inline-block}
+/* Planilla */
+.p-top{display:flex;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line);font-size:12px}
+.p-top b{font-weight:500}.p-top span{color:var(--fg-3)}
+.p-grid{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;font-size:11px;font-variant-numeric:tabular-nums}
+.p-grid span{padding:9px 7px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#cfcfcf}
+.p-grid span:nth-child(4n){border-right:0}
+.p-grid .ph{color:var(--fg-3);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;background:#101010}
+.p-grid .pn{background:rgba(255,255,255,.07);color:#fff}
+.p-foot{padding:12px 14px;min-height:46px}
+.p-chip{display:inline-block;font-size:11px;border:1px solid var(--line-2);border-radius:999px;padding:5px 10px;color:#d6d6d6;background:#111}
+.p-chip.st.in{display:inline-block}
+/* CRM */
+.m-crm{padding:10px}
+.k-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.k-col{background:#0f0f0f;border:1px solid var(--line);border-radius:12px;padding:6px;min-height:214px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.k-h{font-size:10.5px;color:var(--fg-3);padding:2px 2px 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.k-card{font-size:11px;line-height:1.35;padding:8px;border-radius:9px;background:#181818;border:1px solid var(--line);color:#d4d4d4}
+.k-card small{display:block;color:var(--fg-3);font-size:10px;margin-top:1px}
+.k-card.hot{background:#f1f1f1;color:#000;border-color:#f1f1f1;box-shadow:0 0 24px rgba(255,255,255,.28)}
+.k-card.hot small{color:#555}
+.k-toast{margin-top:10px;font-size:11.5px;border:1px solid var(--line-2);border-radius:10px;padding:8px 10px;background:#121212;color:#dcdcdc;min-height:34px}
+.k-toast.st.in{display:block}
+.k-toast b{font-weight:500}
 
 /* Bento de agentes */
 .bento{display:grid;grid-template-columns:1fr;gap:14px;margin-top:46px}
@@ -235,14 +324,14 @@ body.open .burger span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg)
 .checks li{display:flex;gap:12px;font-size:14.5px;color:var(--fg-2)}
 .checks li::before{content:"";flex:0 0 18px;height:18px;margin-top:3px;border:1px solid var(--line-2);border-radius:50%;background:radial-gradient(circle,var(--fg) 0 3px,transparent 3.5px)}
 .checks b{color:var(--fg);font-weight:500}
-.demo-vis{position:relative;max-width:420px;margin:0 auto;width:100%}
+.demo-vis{position:relative;max-width:340px;margin:0 auto;width:100%}
 .phone{width:100%;max-width:340px;margin:0 0 0 auto;background:#050505;border:1px solid var(--line-2);border-radius:34px;padding:11px;box-shadow:0 40px 90px -30px rgba(255,255,255,.1)}
 .screen{border-radius:24px;background:#0b0b0b;overflow:hidden;border:1px solid var(--line)}
 .chat-top{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line)}
 .avatar{width:30px;height:30px;border-radius:50%;background:var(--fg);color:#000;display:grid;place-items:center;font-size:12px;font-weight:600}
 .chat-top b{font-weight:500;font-size:13.5px;display:block}
 .chat-top small{color:var(--fg-3);font-size:11px}
-.chat{height:360px;padding:14px;display:flex;flex-direction:column;gap:8px;overflow:hidden;justify-content:flex-end}
+.chat{height:360px;padding:14px;display:flex;flex-direction:column;gap:8px;overflow:hidden;justify-content:flex-end;-webkit-mask-image:linear-gradient(transparent,#000 40px);mask-image:linear-gradient(transparent,#000 40px)}
 .msg{max-width:84%;font-size:12.5px;line-height:1.45;padding:8px 11px;border-radius:13px;opacity:0;transform:translateY(8px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
 .msg.in{opacity:1;transform:none}
 .msg.user{align-self:flex-end;background:var(--fg);color:#000;border-bottom-right-radius:4px}
@@ -253,12 +342,22 @@ body.open .burger span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg)
 .typing i{width:5px;height:5px;border-radius:50%;background:var(--fg-2);animation:blink 1.2s infinite}
 .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
 @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
-.sum{position:relative;margin:-60px 0 0 0;width:78%;max-width:280px;padding:16px;background:linear-gradient(180deg,#191919,#101010);box-shadow:0 30px 60px -20px rgba(0,0,0,.95)}
+.rubros{display:flex;flex-wrap:wrap;gap:8px;max-width:340px;margin:0 0 14px auto}
+.rb{flex:none;height:32px;padding:0 13px;border-radius:999px;border:1px solid var(--line-2);background:#111;font-size:12px;color:var(--fg-2);transition:background .3s,color .3s,border-color .3s}
+.rb:hover{color:var(--fg);border-color:var(--line-3)}
+.rb[aria-pressed="true"]{background:#f1f1f1;color:#000;border-color:#f1f1f1}
+/* el resumen se completa mientras el agente conversa */
+.sum{width:100%;max-width:340px;margin:14px 0 0 auto;padding:16px;background:linear-gradient(180deg,#191919,#101010)}
 .sum-top{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;font-weight:500;margin-bottom:10px}
-.sum-top span{color:var(--fg-3);letter-spacing:.1em}
+.sum-top span{color:var(--fg-3);letter-spacing:.1em;font-weight:400;font-size:11.5px;white-space:nowrap}
+.sum:not(.ok) .sum-top span{animation:blink 1.4s infinite}
+.sum.ok .sum-top span{color:var(--fg);letter-spacing:.02em}
 .sum-row{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#0c0c0c;margin-top:6px}
 .sum-row small{color:var(--fg-3);font-size:11px}
 .sum-row b{font-weight:500;text-align:right}
+.sum-row.vacia{border-style:dashed;background:transparent}
+.sum-row.vacia small,.sum-row.vacia b{visibility:hidden}
+.sum-row.nueva{animation:entra .45s var(--ease) both}
 
 /* Pilares */
 .stats{display:grid;grid-template-columns:1fr;gap:12px}
@@ -313,6 +412,9 @@ footer{padding:20px 0 34px}
   section{padding:108px 0}
   .logos{grid-template-columns:repeat(3,1fr)}
   .v-chat{grid-template-columns:1fr 1fr}
+  .m-crm{padding:14px}
+  .k-cols{gap:8px}
+  .k-col{padding:8px}
   .tr{grid-template-columns:110px 1fr 1fr;align-items:start;padding:15px 22px}
   .tr .tl{grid-column:auto;padding-top:2px}
   .tr.th span:first-child{display:block}
@@ -344,6 +446,8 @@ footer{padding:20px 0 34px}
   .split{grid-template-columns:1fr 1fr;gap:80px}
   .split.rev .split-text{order:2}
   .demo-vis{margin:0 0 0 auto}
+  .escenario{padding:34px 40px}
+  .esc{grid-template-columns:.85fr 1.15fr;gap:44px}
   .steps{grid-template-columns:repeat(4,1fr)}
   .f-card{grid-template-columns:1.15fr 1fr;padding:38px 40px;align-items:start}
 }
@@ -356,6 +460,10 @@ footer{padding:20px 0 34px}
   .msg{transform:none;transition:opacity .45s var(--ease)}
   .marquee-track{animation-duration:80s}
   .stars i{animation:none}
+  .st.in{animation:entra-suave .45s var(--ease) both}
+  .sum-row.nueva{animation:entra-suave .45s var(--ease) both}
+  .sv{transform:none}
+  @keyframes entra-suave{from{opacity:0}to{opacity:1}}
 }
 </style>
 <script type="application/ld+json">
@@ -416,19 +524,111 @@ footer{padding:20px 0 34px}
     </div>
   </section>
 
-  <!-- CANALES (debajo del arco de luz) -->
-  <section class="canales">
+  <!-- CANALES (debajo del arco de luz): cada botón muestra su animación -->
+  <section class="canales" id="canales">
     <div class="wrap">
       <span class="pill-sec rv">Canales y herramientas</span>
       <h2 class="h-mid rv">Funciona donde ya atendés a tus clientes</h2>
-      <div class="logos rv">
-        <div class="lc on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"/></svg>WhatsApp</div>
-        <div class="lc"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6"/></svg>Instagram</div>
-        <div class="lc"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>Tu web</div>
-        <div class="lc"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Calendario</div>
-        <div class="lc"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 15h16M10 4v16"/></svg>Planillas</div>
-        <div class="lc"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5"/><circle cx="17" cy="10" r="2.3"/><path d="M15.5 14.8c2.4-.4 4.4.8 5 3.4"/></svg>CRM</div>
+      <p class="lead rv">Tocá cada uno para ver qué hace el agente ahí.</p>
+      <div class="logos rv" role="tablist" aria-label="Canales y herramientas">
+        <button class="lc on" type="button" role="tab" id="t-wa" aria-controls="e-wa" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"/></svg>WhatsApp</button>
+        <button class="lc" type="button" role="tab" id="t-ig" aria-controls="e-ig" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6"/></svg>Instagram</button>
+        <button class="lc" type="button" role="tab" id="t-web" aria-controls="e-web" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg>Tu web</button>
+        <button class="lc" type="button" role="tab" id="t-cal" aria-controls="e-cal" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Calendario</button>
+        <button class="lc" type="button" role="tab" id="t-pla" aria-controls="e-pla" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 15h16M10 4v16"/></svg>Planillas</button>
+        <button class="lc" type="button" role="tab" id="t-crm" aria-controls="e-crm" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5"/><circle cx="17" cy="10" r="2.3"/><path d="M15.5 14.8c2.4-.4 4.4.8 5 3.4"/></svg>CRM</button>
       </div>
+      <div class="card escenario rv">
+        <div class="esc" id="e-wa" role="tabpanel" aria-labelledby="t-wa" data-dur="10000">
+          <div class="esc-txt"><span class="esc-k">WhatsApp</span><h3>Contesta al instante, a cualquier hora</h3><p>Con el tono de tu marca. Agenda, responde lo que preguntan y, si una charla necesita a una persona, te la pasa.</p></div>
+          <div class="esc-vis" aria-hidden="true"><div class="mock">
+            <div class="m-top"><span class="m-av">T</span><span><b>Tu negocio</b><small>en línea</small></span></div>
+            <div class="m-body">
+              <span class="st m-sys" data-t="0">Domingo 23:41</span>
+              <div class="st mb u" data-t="300">Hola, ¿atienden mañana?</div>
+              <div class="st typ" data-t="1000" data-out="2200"><i></i><i></i><i></i></div>
+              <div class="st mb a" data-t="2200">¡Hola! Sí, mañana abrimos de 8:00 a 18:00. ¿Querés que te reserve un turno?</div>
+              <div class="st mb u" data-t="3800">Sí, a las 10</div>
+              <div class="st typ" data-t="4400" data-out="5500"><i></i><i></i><i></i></div>
+              <div class="st mb a" data-t="5500">Listo, mañana a las 10:00. Te mando un recordatorio una hora antes.</div>
+              <span class="st m-sys" data-t="6900">Turno agendado ✓</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="esc" id="e-ig" role="tabpanel" aria-labelledby="t-ig" data-dur="10000" hidden>
+          <div class="esc-txt"><span class="esc-k">Instagram</span><h3>Nadie queda en visto</h3><p>Responde los mensajes directos y las respuestas a tus historias al momento, aunque sea domingo a la noche.</p></div>
+          <div class="esc-vis" aria-hidden="true"><div class="mock">
+            <div class="m-top"><span class="m-av ring">T</span><span><b>tu.negocio</b><small>Activo ahora</small></span></div>
+            <div class="m-body">
+              <span class="st ig-ctx" data-t="0">Respondió a tu historia</span>
+              <div class="st mb u" data-t="300">¿Todavía tenés la campera negra en talle M?</div>
+              <div class="st typ" data-t="1000" data-out="2100"><i></i><i></i><i></i></div>
+              <div class="st mb a" data-t="2100">¡Hola! Sí, queda en M y en L. ¿Te la separo?</div>
+              <div class="st mb u" data-t="3600">Sí, porfa</div>
+              <div class="st typ" data-t="4200" data-out="5300"><i></i><i></i><i></i></div>
+              <div class="st mb a" data-t="5300">Listo, separada a tu nombre hasta mañana. ¿La retirás o te la enviamos?</div>
+              <span class="st m-sys" data-t="6700">Respondido al momento ✓</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="esc" id="e-web" role="tabpanel" aria-labelledby="t-web" data-dur="11000" hidden>
+          <div class="esc-txt"><span class="esc-k">Tu web</span><h3>Atiende a quien entra y no encuentra lo que busca</h3><p>Pregunta lo que falta, responde con la información de tu negocio y le avisa a tu equipo cuando hay que seguir.</p></div>
+          <div class="esc-vis" aria-hidden="true"><div class="mock">
+            <div class="w-bar"><i></i><i></i><i></i><span>tunegocio.com</span></div>
+            <div class="w-page">
+              <span class="w-l w1"></span><span class="w-l w2"></span><span class="w-l w3"></span><div class="w-img"></div>
+              <span class="st w-btn" data-t="0" data-out="700"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></span>
+              <div class="st w-widget" data-t="700">
+                <div class="w-head"><span class="m-av">T</span><b>¿Te ayudo?</b></div>
+                <div class="m-body">
+                  <div class="st mb a" data-t="1000">¡Hola! ¿Buscás algo en particular?</div>
+                  <div class="st mb u" data-t="2400">¿Puedo pedir un presupuesto?</div>
+                  <div class="st typ" data-t="3000" data-out="4000"><i></i><i></i><i></i></div>
+                  <div class="st mb a" data-t="4000">¡Claro! ¿Para qué servicio y desde cuándo?</div>
+                  <div class="st mb u" data-t="5400">Limpieza de oficina, desde noviembre</div>
+                  <div class="st typ" data-t="6000" data-out="7000"><i></i><i></i><i></i></div>
+                  <div class="st mb a" data-t="7000">Perfecto, se lo paso al equipo y hoy te llega. ¿A qué correo te lo mandamos?</div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+        </div>
+        <div class="esc" id="e-cal" role="tabpanel" aria-labelledby="t-cal" data-dur="8500" hidden>
+          <div class="esc-txt"><span class="esc-k">Calendario</span><h3>Agenda sin que toques el calendario</h3><p>Agenda, confirma, reprograma y recuerda citas. Mira los horarios libres de verdad y no pisa los ocupados.</p></div>
+          <div class="esc-vis" aria-hidden="true"><div class="mock m-cal">
+            <div class="c-top"><b>Agenda</b><span>Semana del 12 al 16 de octubre</span></div>
+            <div class="c-ask"><div class="st mb u" data-t="200">¿Tenés el jueves a la tarde?</div></div>
+            <div class="c-grid"><span class="c-h"></span><span class="c-h">Lun</span><span class="c-h">Mar</span><span class="c-h">Mié</span><span class="c-h">Jue</span><span class="c-h">Vie</span><span class="c-hr">9:00</span><span class="c-c"></span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"></span><span class="c-c"></span><span class="c-hr">11:00</span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"></span><span class="c-c oc"></span><span class="c-c"></span><span class="c-hr">14:00</span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"></span><span class="c-c"></span><span class="c-c oc"></span><span class="c-hr">16:00</span><span class="c-c"></span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"><span class="c-new st" data-t="1500">Laura G.</span></span><span class="c-c"></span><span class="c-hr">18:00</span><span class="c-c"></span><span class="c-c"></span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"></span></div>
+            <div class="c-chips"><span class="sv c-chip" data-t="2600">Reservado: jueves 16:00 ✓</span><span class="sv c-chip" data-t="3700">Recordatorio: miércoles 16:00</span></div>
+          </div></div>
+        </div>
+        <div class="esc" id="e-pla" role="tabpanel" aria-labelledby="t-pla" data-dur="8500" hidden>
+          <div class="esc-txt"><span class="esc-k">Planillas</span><h3>Cada consulta queda anotada</h3><p>Carga en tu planilla quién escribió, qué busca y en qué quedó, sin que tengas que copiar nada a mano.</p></div>
+          <div class="esc-vis" aria-hidden="true"><div class="mock">
+            <div class="p-top"><b>Consultas</b><span>Hoja 1</span></div>
+            <div class="p-grid">
+              <span class="ph">Fecha</span><span class="ph">Nombre</span><span class="ph">Busca</span><span class="ph">Estado</span>
+              <span>05/10</span><span>María L.</span><span>Alquiler 1 dorm.</span><span>Agendado</span>
+              <span>06/10</span><span>Pedro S.</span><span>Compra casa</span><span>Charlando</span>
+              <span>06/10</span><span>Ana V.</span><span>Alquiler local</span><span>Pendiente</span>
+              <span class="sv pn" data-t="600">07/10</span><span class="sv pn" data-t="1100">Juan P.</span><span class="sv pn" data-t="1700">Alquiler 2 dorm.</span><span class="sv pn" data-t="2300">Interesado</span>
+            </div>
+            <div class="p-foot"><span class="sv p-chip" data-t="3200">Fila nueva, cargada sola ✓</span></div>
+          </div></div>
+        </div>
+        <div class="esc" id="e-crm" role="tabpanel" aria-labelledby="t-crm" data-dur="8500" hidden>
+          <div class="esc-txt"><span class="esc-k">CRM</span><h3>Te pasa solo a los interesados</h3><p>Separa curiosos de interesados y te pasa solo las oportunidades listas para cerrar, con el resumen de la charla.</p></div>
+          <div class="esc-vis" aria-hidden="true"><div class="mock m-crm">
+            <div class="k-cols">
+              <div class="k-col"><span class="k-h">Nuevos</span><div class="k-card">Rocío M.<small>Consulta precio</small></div><div class="k-card">Luis R.<small>Pregunta horarios</small></div></div>
+              <div class="k-col"><span class="k-h">Conversando</span><div class="st k-card" data-t="0" data-out="1900">Juan P.<small>Alquiler 2 dorm.</small></div><div class="k-card">Pedro S.<small>Compra casa</small></div></div>
+              <div class="k-col"><span class="k-h">Interesados</span><div class="k-card">Carla D.<small>Visita el lunes</small></div><div class="st k-card hot" data-t="1900">Juan P.<small>Alquiler 2 dorm.</small></div></div>
+            </div>
+            <div class="sv k-toast" data-t="3100"><b>Juan P.</b> está listo para hablar con vos. Te dejé el resumen.</div>
+          </div></div>
+        </div>
+      </div>
+      <p class="note rv">Ejemplos animados.</p>
     </div>
   </section>
 
@@ -534,20 +734,24 @@ footer{padding:20px 0 34px}
         <div class="btns rv"><a class="btn btn-fill" data-contact href="#contacto">Quiero mi agente</a></div>
       </div>
       <div class="demo-vis rv">
+        <div class="rubros" role="group" aria-label="Ver una conversación de ejemplo por rubro">
+          <button class="rb" type="button" aria-pressed="true" data-r="0">Inmobiliaria</button>
+          <button class="rb" type="button" aria-pressed="false" data-r="1">Clínica</button>
+          <button class="rb" type="button" aria-pressed="false" data-r="2">Restaurante</button>
+          <button class="rb" type="button" aria-pressed="false" data-r="3">Gimnasio</button>
+          <button class="rb" type="button" aria-pressed="false" data-r="4">Academia</button>
+        </div>
         <div class="phone">
-          <div class="screen">
-            <div class="chat-top"><span class="avatar">C</span><span><b>Asistente · Clínica</b><small>en línea</small></span></div>
+          <div class="screen" aria-hidden="true">
+            <div class="chat-top"><span class="avatar" id="chatAv">I</span><span><b id="chatNombre">Asistente · Inmobiliaria</b><small>en línea</small></span></div>
             <div class="chat" id="chat"></div>
           </div>
         </div>
-        <div class="card sum" aria-hidden="true">
-          <div class="sum-top"><b>Resumen para tu equipo</b><span>···</span></div>
-          <div class="sum-row"><small>Turno</small><b>Viernes 16:30</b></div>
-          <div class="sum-row"><small>Paciente</small><b>Laura Gómez</b></div>
-          <div class="sum-row"><small>Motivo</small><b>Limpieza dental</b></div>
-          <div class="sum-row"><small>Recordatorio</small><b>Jueves</b></div>
+        <div class="card sum" id="resumen" aria-hidden="true">
+          <div class="sum-top"><b>Resumen para tu equipo</b><span id="resumenEstado">···</span></div>
+          <div id="resumenFilas"></div>
         </div>
-        <p class="note">Conversación de ejemplo.</p>
+        <p class="note">Conversaciones de ejemplo.</p>
       </div>
     </div>
   </section>
@@ -697,37 +901,156 @@ track.addEventListener("scroll", edges, {passive:true}); addEventListener("resiz
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }), {threshold:.12});
 document.querySelectorAll(".rv").forEach(el => io.observe(el));
 
-/* Conversación de ejemplo (se reproduce al entrar en pantalla, en bucle) */
-const script = [
-  ["sys","Hoy 22:47"],
-  ["user","Hola, ¿tienen turno para limpieza dental esta semana?"],
-  ["bot","¡Hola! Sí, tengo jueves a las 10:00 o viernes a las 16:30. ¿Cuál te queda mejor?"],
-  ["user","El viernes"],
-  ["bot","Listo, reservado: viernes 16:30. ¿Me pasás tu nombre completo para confirmarlo?"],
-  ["user","Laura Gómez"],
-  ["bot","Gracias, Laura. Te llega el recordatorio el jueves. Si necesitás cambiarlo, escribime por acá."],
-  ["sys","Turno agendado · equipo avisado"]
+/* Canales: cada botón muestra su escena. Rotan solos hasta que tocás uno; ese se repite. */
+const tabs = [...document.querySelectorAll('.logos [role="tab"]')];
+const escenas = tabs.map(t => document.getElementById(t.getAttribute("aria-controls")));
+const escenario = document.querySelector(".escenario");
+let escActual = 0, escAuto = true, escVisible = false, escTimers = [];
+const escParar = () => { escTimers.forEach(clearTimeout); escTimers = []; };
+function escCorrer(){
+  escParar();
+  const panel = escenas[escActual], dur = +panel.dataset.dur || 9000;
+  const piezas = [...panel.querySelectorAll(".st,.sv")];
+  piezas.forEach(el => el.classList.remove("in"));
+  tabs.forEach(t => t.classList.remove("corre"));
+  void panel.offsetWidth; // reinicia las animaciones
+  piezas.forEach(el => {
+    escTimers.push(setTimeout(() => el.classList.add("in"), +el.dataset.t || 0));
+    if (el.dataset.out) escTimers.push(setTimeout(() => el.classList.remove("in"), +el.dataset.out));
+  });
+  if (escAuto){ tabs[escActual].style.setProperty("--dur", dur + "ms"); tabs[escActual].classList.add("corre"); }
+  escTimers.push(setTimeout(() => escAuto ? escElegir((escActual + 1) % tabs.length) : escCorrer(), dur));
+}
+function escElegir(i, porUsuario){
+  if (porUsuario) escAuto = false;
+  escActual = i;
+  tabs.forEach((t, k) => {
+    const on = k === i;
+    t.classList.toggle("on", on); t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
+    escenas[k].hidden = !on;
+  });
+  if (escVisible) escCorrer(); else escParar();
+}
+tabs.forEach((t, i) => {
+  t.addEventListener("click", () => escElegir(i, true));
+  t.addEventListener("keydown", e => {
+    const d = {ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1}[e.key];
+    if (!d) return;
+    e.preventDefault();
+    const j = (i + d + tabs.length) % tabs.length; tabs[j].focus(); escElegir(j, true);
+  });
+});
+new IntersectionObserver(es => es.forEach(e => {
+  escVisible = e.isIntersecting;
+  if (escVisible) escCorrer(); else { escParar(); tabs.forEach(t => t.classList.remove("corre")); }
+}), {threshold:.25}).observe(escenario);
+
+/* Cómo trabaja: una conversación por rubro; el resumen se completa mientras conversa */
+const RUBROS = [
+  {av:"I", nombre:"Inmobiliaria", guion:[
+    ["sys","Hoy 23:12"],
+    ["user","Hola, ¿sigue disponible el departamento de 2 dormitorios en Villa Morra?"],
+    ["bot","¡Hola! Sí, sigue disponible. ¿Lo buscás para alquilar o para comprar?"],
+    ["user","Para alquilar", ["Busca","Alquiler, 2 dormitorios"]],
+    ["bot","Perfecto. ¿Para cuándo lo necesitarías y cuál es tu presupuesto aproximado?"],
+    ["user","Para noviembre, hasta 5 millones", ["Presupuesto","Hasta ₲ 5.000.000"], ["Mudanza","Noviembre"]],
+    ["bot","Entra en tu presupuesto. ¿Te sirve verlo el sábado a las 10:00?"],
+    ["user","Dale", ["Visita","Sábado 10:00"]],
+    ["bot","Listo, visita agendada. Ana, la asesora, te escribe mañana para confirmar."],
+    ["sys","Visita agendada · asesora avisada"]
+  ]},
+  {av:"C", nombre:"Clínica", guion:[
+    ["sys","Hoy 22:47"],
+    ["user","Hola, ¿tienen turno para limpieza dental esta semana?", ["Motivo","Limpieza dental"]],
+    ["bot","¡Hola! Sí, tengo jueves a las 10:00 o viernes a las 16:30. ¿Cuál te queda mejor?"],
+    ["user","El viernes", ["Turno","Viernes 16:30"]],
+    ["bot","Listo, reservado: viernes 16:30. ¿Me pasás tu nombre completo para confirmarlo?"],
+    ["user","Laura Gómez", ["Paciente","Laura Gómez"]],
+    ["bot","Gracias, Laura. Te llega el recordatorio el jueves. Si necesitás cambiarlo, escribime por acá.", ["Recordatorio","Jueves"]],
+    ["sys","Turno agendado · equipo avisado"]
+  ]},
+  {av:"R", nombre:"Restaurante", guion:[
+    ["sys","Hoy 19:48"],
+    ["user","Hola, ¿tienen mesa para 4 esta noche?", ["Personas","4"]],
+    ["bot","¡Hola! Sí, tengo a las 20:30 o a las 21:30. ¿Prefieren adentro o en la terraza?"],
+    ["user","Terraza, a las 21:30", ["Reserva","Hoy 21:30"], ["Lugar","Terraza"]],
+    ["bot","Reservado. ¿A nombre de quién la dejo?"],
+    ["user","Martín", ["Nombre","Martín"]],
+    ["bot","Gracias, Martín. Si se suma alguien más, avisame por acá."],
+    ["sys","Reserva confirmada · salón avisado"]
+  ]},
+  {av:"G", nombre:"Gimnasio", guion:[
+    ["sys","Domingo 22:05"],
+    ["user","Hola, ¿qué clases tienen?"],
+    ["bot","¡Hola! Tenemos funcional, spinning y yoga, de lunes a sábado. ¿Cuál te interesa?"],
+    ["user","Funcional, pero arranco de cero", ["Interés","Funcional"], ["Nivel","Principiante"]],
+    ["bot","Perfecto, hay grupos para quienes recién empiezan. ¿Querés venir a una clase de prueba mañana a las 19:00?"],
+    ["user","Sí, dale", ["Clase de prueba","Mañana 19:00"]],
+    ["bot","Genial. ¿Me pasás tu nombre?"],
+    ["user","Sofía", ["Nombre","Sofía"]],
+    ["bot","Gracias, Sofía. Te espero mañana a las 19:00. Traé agua y una toalla."],
+    ["sys","Clase de prueba agendada"]
+  ]},
+  {av:"A", nombre:"Academia", guion:[
+    ["sys","Hoy 07:52"],
+    ["user","Buen día, ¿tienen inglés para adultos?"],
+    ["bot","¡Buen día! Sí. ¿Ya estudiaste inglés antes o arrancás desde cero?"],
+    ["user","Básico, lo dejé hace años", ["Curso","Inglés inicial"], ["Nivel","Básico"]],
+    ["bot","Tranqui, el grupo inicial arranca el lunes a las 18:00. ¿Te reservo un lugar?"],
+    ["user","Sí", ["Inicio","Lunes 18:00"]],
+    ["bot","Listo. ¿Me pasás tu nombre?"],
+    ["user","Diego Ruiz", ["Nombre","Diego Ruiz"]],
+    ["bot","Gracias, Diego. Te escribo el viernes para recordarte la primera clase."],
+    ["sys","Lugar reservado · secretaría avisada"]
+  ]}
 ];
 const chat = document.getElementById("chat");
-let playing = false;
+const chatAv = document.getElementById("chatAv"), chatNombre = document.getElementById("chatNombre");
+const resumen = document.getElementById("resumen"), filas = document.getElementById("resumenFilas"), estado = document.getElementById("resumenEstado");
+const chips = [...document.querySelectorAll(".rb")];
 const wait = ms => new Promise(r => setTimeout(r, ms));
-async function play(){
-  if (playing) return; playing = true;
-  while (true){
-    chat.innerHTML = "";
-    for (const [who, text] of script){
-      if (who === "bot"){
-        const t = document.createElement("div"); t.className = "typing"; t.innerHTML = "<i></i><i></i><i></i>";
-        chat.appendChild(t); requestAnimationFrame(() => t.classList.add("in")); await wait(1100); t.remove();
-      }
-      const m = document.createElement("div"); m.className = "msg " + who; m.textContent = text; chat.appendChild(m);
-      requestAnimationFrame(() => requestAnimationFrame(() => m.classList.add("in")));
-      await wait(who === "user" ? 1300 : 900);
-    }
-    await wait(4500);
+let rubro = 0, rubroAuto = true, turno = 0, demoVisible = false;
+function vaciarResumen(){
+  filas.innerHTML = "";
+  for (let k = 0; k < 4; k++){
+    const f = document.createElement("div"); f.className = "sum-row vacia";
+    f.innerHTML = "<small>&nbsp;</small><b>&nbsp;</b>"; filas.appendChild(f);
   }
+  resumen.classList.remove("ok"); estado.textContent = "···";
 }
-new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting){ play(); o.disconnect(); } }), {threshold:.3}).observe(chat);
+function anotar(etiqueta, valor, demora){
+  const f = filas.querySelector(".vacia"); if (!f) return;
+  f.querySelector("small").textContent = etiqueta; f.querySelector("b").textContent = valor;
+  f.style.animationDelay = demora + "ms";
+  f.classList.remove("vacia"); f.classList.add("nueva");
+}
+async function reproducir(i){
+  const mio = ++turno; rubro = i;
+  const r = RUBROS[i];
+  chips.forEach((c, k) => c.setAttribute("aria-pressed", k === i));
+  chatAv.textContent = r.av; chatNombre.textContent = "Asistente · " + r.nombre;
+  chat.innerHTML = ""; vaciarResumen();
+  for (const [quien, texto, ...datos] of r.guion){
+    if (quien === "bot"){
+      const t = document.createElement("div"); t.className = "typing"; t.innerHTML = "<i></i><i></i><i></i>";
+      chat.appendChild(t); requestAnimationFrame(() => t.classList.add("in"));
+      await wait(1100); if (mio !== turno) return; t.remove();
+    }
+    const m = document.createElement("div"); m.className = "msg " + quien; m.textContent = texto; chat.appendChild(m);
+    requestAnimationFrame(() => requestAnimationFrame(() => m.classList.add("in")));
+    if (datos.length){ await wait(450); if (mio !== turno) return; datos.forEach(([e, v], k) => anotar(e, v, k * 180)); }
+    await wait(quien === "user" ? 1300 : 900); if (mio !== turno) return;
+  }
+  resumen.classList.add("ok"); estado.textContent = "Enviado ✓";
+  await wait(5000); if (mio !== turno) return;
+  reproducir(rubroAuto ? (i + 1) % RUBROS.length : i);
+}
+chips.forEach((c, i) => c.addEventListener("click", () => { rubroAuto = false; reproducir(i); }));
+vaciarResumen();
+new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting && !demoVisible){ demoVisible = true; reproducir(rubro); }
+  else if (!e.isIntersecting && demoVisible){ demoVisible = false; turno++; }
+}), {threshold:.3}).observe(chat);
 </script>
 </body>
 </html>
