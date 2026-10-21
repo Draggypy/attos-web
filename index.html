@@ -755,55 +755,6 @@ footer{padding:20px 0 34px}
       </div>
     </div>
 
-    <!-- SINCRONIZACIÓN EN TIEMPO REAL (Calendario, Planillas, CRM justo debajo de la demo) -->
-    <div class="wrap demo-sync rv" style="margin-top:48px;border-top:1px solid var(--line);padding-top:40px">
-      <div class="center" style="margin-bottom:28px">
-        <span class="pill-sec">Sincronización en tiempo real</span>
-        <h3 class="h-mid" style="margin:8px 0 10px">Y mientras atiende, alimenta tus herramientas</h3>
-        <p class="lead" style="max-width:580px;margin:0 auto;font-size:14.5px">El agente no se queda en el chat: agenda en tu calendario, carga la consulta en tu planilla y te deja el prospecto calificado en el CRM.</p>
-        <div class="logos rv" role="tablist" aria-label="Herramientas sincronizadas" style="margin-top:20px">
-          <button class="lc on" type="button" role="tab" id="td-cal" aria-controls="ed-cal" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Calendario</button>
-          <button class="lc" type="button" role="tab" id="td-pla" aria-controls="ed-pla" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 15h16M10 4v16"/></svg>Planillas</button>
-          <button class="lc" type="button" role="tab" id="td-crm" aria-controls="ed-crm" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5"/><circle cx="17" cy="10" r="2.3"/><path d="M15.5 14.8c2.4-.4 4.4.8 5 3.4"/></svg>CRM</button>
-        </div>
-      </div>
-      <div class="card escenario rv" style="max-width:760px;margin:0 auto">
-        <div class="esc" id="ed-cal" role="tabpanel" aria-labelledby="td-cal" data-dur="8500">
-          <div class="esc-txt"><span class="esc-k">Calendario</span><h3>Agenda sin que toques el calendario</h3><p>Agenda, confirma, reprograma y recuerda citas. Mira los horarios libres de verdad y no pisa los ocupados.</p></div>
-          <div class="esc-vis" aria-hidden="true"><div class="mock m-cal">
-            <div class="c-top"><b>Agenda</b><span>Semana del 12 al 16 de octubre</span></div>
-            <div class="c-ask"><div class="st mb u" data-t="200">¿Tenés el jueves a la tarde?</div></div>
-            <div class="c-grid"><span class="c-h"></span><span class="c-h">Lun</span><span class="c-h">Mar</span><span class="c-h">Mié</span><span class="c-h">Jue</span><span class="c-h">Vie</span><span class="c-hr">9:00</span><span class="c-c"></span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"></span><span class="c-c"></span><span class="c-hr">11:00</span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"></span><span class="c-c oc"></span><span class="c-c"></span><span class="c-hr">14:00</span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"></span><span class="c-c"></span><span class="c-c oc"></span><span class="c-hr">16:00</span><span class="c-c"></span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"><span class="c-new st" data-t="1500">Laura G.</span></span><span class="c-c"></span><span class="c-hr">18:00</span><span class="c-c"></span><span class="c-c"></span><span class="c-c oc"></span><span class="c-c"></span><span class="c-c"></span></div>
-            <div class="c-chips"><span class="sv c-chip" data-t="2600">Reservado: jueves 16:00 ✓</span><span class="sv c-chip" data-t="3700">Recordatorio: miércoles 16:00</span></div>
-          </div></div>
-        </div>
-        <div class="esc" id="ed-pla" role="tabpanel" aria-labelledby="td-pla" data-dur="8500" hidden>
-          <div class="esc-txt"><span class="esc-k">Planillas</span><h3>Cada consulta queda anotada</h3><p>Carga en tu planilla quién escribió, qué busca y en qué quedó, sin que tengas que copiar nada a mano.</p></div>
-          <div class="esc-vis" aria-hidden="true"><div class="mock">
-            <div class="p-top"><b>Consultas</b><span>Hoja 1</span></div>
-            <div class="p-grid">
-              <span class="ph">Fecha</span><span class="ph">Nombre</span><span class="ph">Busca</span><span class="ph">Estado</span>
-              <span>05/10</span><span>María L.</span><span>Alquiler 1 dorm.</span><span>Agendado</span>
-              <span>06/10</span><span>Pedro S.</span><span>Compra casa</span><span>Charlando</span>
-              <span>06/10</span><span>Ana V.</span><span>Alquiler local</span><span>Pendiente</span>
-              <span class="sv pn" data-t="600">07/10</span><span class="sv pn" data-t="1100">Juan P.</span><span class="sv pn" data-t="1700">Alquiler 2 dorm.</span><span class="sv pn" data-t="2300">Interesado</span>
-            </div>
-            <div class="p-foot"><span class="sv p-chip" data-t="3200">Fila nueva, cargada sola ✓</span></div>
-          </div></div>
-        </div>
-        <div class="esc" id="ed-crm" role="tabpanel" aria-labelledby="td-crm" data-dur="8500" hidden>
-          <div class="esc-txt"><span class="esc-k">CRM</span><h3>Te pasa solo a los interesados</h3><p>Separa curiosos de interesados y te pasa solo las oportunidades listas para cerrar, con el resumen de la charla.</p></div>
-          <div class="esc-vis" aria-hidden="true"><div class="mock m-crm">
-            <div class="k-cols">
-              <div class="k-col"><span class="k-h">Nuevos</span><div class="k-card">Rocío M.<small>Consulta precio</small></div><div class="k-card">Luis R.<small>Pregunta horarios</small></div></div>
-              <div class="k-col"><span class="k-h">Conversando</span><div class="st k-card" data-t="0" data-out="1900">Juan P.<small>Alquiler 2 dorm.</small></div><div class="k-card">Pedro S.<small>Compra casa</small></div></div>
-              <div class="k-col"><span class="k-h">Interesados</span><div class="k-card">Carla D.<small>Visita el lunes</small></div><div class="st k-card hot" data-t="1900">Juan P.<small>Alquiler 2 dorm.</small></div></div>
-            </div>
-            <div class="sv k-toast" data-t="3100"><b>Juan P.</b> está listo para hablar con vos. Te dejé el resumen.</div>
-          </div></div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- PILARES -->
@@ -997,47 +948,6 @@ if (escenario){
   }), {threshold:.25}).observe(escenario);
 }
 
-/* Sincronización en demo: pestañas de Calendario, Planillas, CRM */
-const tabsDemo = [...document.querySelectorAll('.demo-sync .logos [role="tab"]')];
-if (tabsDemo.length){
-  const escenasDemo = tabsDemo.map(t => document.getElementById(t.getAttribute("aria-controls")));
-  const escenarioDemo = document.querySelector(".demo-sync .escenario");
-  let escDActual = 0, escDAuto = true, escDVisible = false, escDTimers = [];
-  const escDParar = () => { escDTimers.forEach(clearTimeout); escDTimers = []; };
-  function escDCorrer(){
-    escDParar();
-    const panel = escenasDemo[escDActual], dur = +panel.dataset.dur || 8500;
-    const piezas = [...panel.querySelectorAll(".st,.sv")];
-    piezas.forEach(el => el.classList.remove("in"));
-    tabsDemo.forEach(t => t.classList.remove("corre"));
-    void panel.offsetWidth;
-    piezas.forEach(el => {
-      escDTimers.push(setTimeout(() => el.classList.add("in"), +el.dataset.t || 0));
-      if (el.dataset.out) escDTimers.push(setTimeout(() => el.classList.remove("in"), +el.dataset.out));
-    });
-    if (escDAuto){ tabsDemo[escDActual].style.setProperty("--dur", dur + "ms"); tabsDemo[escDActual].classList.add("corre"); }
-    escDTimers.push(setTimeout(() => escDAuto ? escDElegir((escDActual + 1) % tabsDemo.length) : escDCorrer(), dur));
-  }
-  function escDElegir(i, porUsuario){
-    if (porUsuario) escDAuto = false;
-    escDActual = i;
-    tabsDemo.forEach((t, k) => {
-      const on = k === i;
-      t.classList.toggle("on", on); t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
-      escenasDemo[k].hidden = !on;
-    });
-    if (escDVisible) escDCorrer(); else escDParar();
-  }
-  tabsDemo.forEach((t, i) => {
-    t.addEventListener("click", () => escDElegir(i, true));
-  });
-  if (escenarioDemo){
-    new IntersectionObserver(es => es.forEach(e => {
-      escDVisible = e.isIntersecting;
-      if (escDVisible) escDCorrer(); else { escDParar(); tabsDemo.forEach(t => t.classList.remove("corre")); }
-    }), {threshold:.25}).observe(escenarioDemo);
-  }
-}
 
 /* Cómo trabaja: una conversación por rubro; el resumen se completa mientras conversa */
 const RUBROS = [
