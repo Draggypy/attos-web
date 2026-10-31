@@ -89,7 +89,7 @@ section{padding:80px 0;position:relative}
 /* Encabezado */
 header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s var(--ease),border-color .4s;border-bottom:1px solid transparent}
 header.scrolled{background:rgba(8,8,8,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav{position:relative;display:flex;align-items:center;justify-content:space-between;height:66px}
 .logo{font-weight:600;letter-spacing:-.015em;font-size:17px;display:flex;align-items:center;gap:10px;color:#fff}
 .logo-mark{width:26px;height:19px;display:block;color:#fff;filter:drop-shadow(0 0 6px rgba(255,255,255,.25))}
 .menu{display:none}
@@ -299,14 +299,14 @@ body.open .burger span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg)
 .sc .sc-top svg{width:15px;height:15px;stroke:#d0d0d0;fill:none;stroke-width:1.6}
 .sc .sc-ok{font-size:10.5px;color:var(--fg-3);letter-spacing:.06em}
 .sc .sc-mark{width:22px;height:16px;color:#e8e8e8}
-.s1{transform:translate(calc(-50% - 46px), 0);top:0}
+.s1{transform:translate(-50%, 0);top:0}
 .s2{transform:translate(-50%, 48px);top:0;background:linear-gradient(145deg,#232323,#121212)}
-.s3{transform:translate(calc(-50% + 46px), 96px);top:0;background:linear-gradient(145deg,#2a2a2a,#141414);border-color:var(--line-3)}
+.s3{transform:translate(-50%, 96px);top:0;background:linear-gradient(145deg,#2a2a2a,#141414);border-color:var(--line-3)}
 @media (max-width:480px){
   .sc{width:min(78%, 270px)}
-  .s1{transform:translate(calc(-50% - 28px), 0)}
+  .s1{transform:translate(-50%, 0)}
   .s2{transform:translate(-50%, 46px)}
-  .s3{transform:translate(calc(-50% + 28px), 92px)}
+  .s3{transform:translate(-50%, 92px)}
 }
 
 /* La diferencia: tabla */
@@ -437,7 +437,7 @@ footer{padding:20px 0 34px}
 @media (min-width:1100px){
   :root{--pad:48px}
   .dk{display:inline}
-  .menu{display:flex;gap:30px}
+  .menu{display:flex;gap:30px;position:absolute;left:50%;transform:translateX(-50%)}
   .burger{display:none}
   .nav-cta{display:inline-flex}
   .drawer{display:none}
