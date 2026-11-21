@@ -85,10 +85,11 @@ section[id],footer[id]{scroll-margin-top:78px}
 
 /* Etiquetas, títulos y textos */
 .pill-sec{
-  display:inline-flex;align-items:center;gap:8px;height:31px;padding:0 14px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;height:31px;padding:0 14px;
   border:1px solid color-mix(in srgb,var(--acc) 36%,var(--line-2));border-radius:999px;
   background:linear-gradient(180deg,color-mix(in srgb,var(--acc) 12%,#16161c),rgba(14,14,18,.92));
-  font-size:12px;color:#e2e2e7;letter-spacing:.015em;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  font-size:12px;font-weight:500;color:#e6e6eb;letter-spacing:-.01em;white-space:nowrap;
+  text-rendering:geometricPrecision;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
 }
 .pill-sec svg{width:12px;height:12px;fill:var(--hl)}
 .h-big{font-weight:300;font-size:clamp(30px,7vw,50px);letter-spacing:-.035em;line-height:1.12;margin-top:20px;color:#f5f5f5}
@@ -211,11 +212,11 @@ body.open .burger span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg)
   text-align:center;position:relative;z-index:3;overflow:visible;
 }
 .hero h1{
-  font-weight:300;letter-spacing:-.044em;line-height:1.09;
-  font-size:clamp(26px,7.55vw,68px);margin-top:20px;color:#f5f5f5;
+  font-weight:300;letter-spacing:-.042em;line-height:1.09;
+  font-size:clamp(27px,7.75vw,68px);margin-top:20px;color:#f5f5f5;
 }
 .hero h1 .h1-top{display:block;white-space:nowrap}
-.hero h1 .h1-bot{display:inline-flex;align-items:baseline;justify-content:center;flex-wrap:nowrap;column-gap:.19em;margin-top:.06em;font-size:1.06em}
+.hero h1 .h1-bot{display:inline-flex;align-items:baseline;justify-content:center;flex-wrap:nowrap;column-gap:.19em;margin-top:.06em;font-size:1.09em}
 .hero h1 .h1-bot > b{font-weight:500;color:#ffffff}
 .hero p.sub{color:var(--fg-2);font-size:15px;margin:18px auto 0;max-width:34ch;line-height:1.62;text-wrap:balance}
 
@@ -696,7 +697,7 @@ footer{padding:20px 0 36px;position:relative;z-index:2}
   "slogan":"Tu negocio, atendido por Agentes Humanos.",
   "founder":{"@type":"Person","name":"Gianni Escandriolo"},
   "email":"gianniscandriolo@gmail.com",
-  "telephone":"+595973319179",
+  "telephone":"+595993444714",
   "address":{"@type":"PostalAddress","addressCountry":"PY"},
   "areaServed":["Paraguay","Argentina","Chile","España","México","Colombia","Perú"],
   "availableLanguage":["es"],
@@ -784,7 +785,7 @@ footer{padding:20px 0 36px;position:relative;z-index:2}
     <!-- PORTADA -->
     <section class="hero">
       <div class="wrap">
-        <span class="pill-sec rv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>Agentes Humanos · Automatización de sistemas</span>
+        <span class="pill-sec rv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>Automatización de sistemas</span>
         <h1 class="rv">
           <span class="h1-top">Tu negocio, atendido por</span>
           <span class="h1-bot"><b>Agentes Humanos.</b></span>
@@ -1184,7 +1185,7 @@ footer{padding:20px 0 36px;position:relative;z-index:2}
       <div class="f-cols">
         <div class="f-col"><h5>Servicios</h5><a href="#agentes">Atención al cliente</a><a href="#agentes">Calificación</a><a href="#agentes">Turnos y reservas</a><a href="#agentes">Procesos internos</a></div>
         <div class="f-col"><h5>Navegación</h5><a href="#canales">Cómo trabaja</a><a href="#diferencia">La diferencia</a><a href="#demo">Demo interactiva</a><a href="#proceso">Proceso</a><a href="#faq">FAQ</a></div>
-        <div class="f-col"><h5>Contacto</h5><a data-contact href="#contacto">WhatsApp<br><span class="nw">+595 973 319 179</span></a><a data-mail href="mailto:gianniscandriolo@gmail.com">gianniscandriolo@gmail.com</a></div>
+        <div class="f-col"><h5>Contacto</h5><a data-contact href="#contacto">WhatsApp<br><span class="nw">+595 993 444 714</span></a><a data-mail href="mailto:gianniscandriolo@gmail.com">gianniscandriolo@gmail.com</a></div>
       </div>
     </div>
     <div class="card f-bottom">
@@ -1197,7 +1198,7 @@ footer{padding:20px 0 36px;position:relative;z-index:2}
 <script>
 const CONFIG = {
   brand: "Attos",
-  whatsapp: "595973319179",
+  whatsapp: "595993444714",
   whatsappText: "Hola Gianni, quiero información sobre un Agente Humano para mi negocio.",
   email: "gianniscandriolo@gmail.com"
 };
