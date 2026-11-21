@@ -1,12 +1,12 @@
-# Attos — Agentes de IA y Servicios de Automatización
+# Attos — Agentes Humanos y Automatización de Sistemas
 
-> Tu negocio, atendido por Agentes Humanos. Agentes conversacionales con inteligencia artificial a medida para WhatsApp, Instagram y web 24/7.
+> Tu negocio, atendido por Agentes Humanos. Automatización conversacional y de sistemas a medida para WhatsApp, Instagram y web 24/7.
 
 ## Servicios principales
-- **Atención al cliente 24/7**: Respuestas al instante en WhatsApp, Instagram y chat web con el tono de la marca y derivación a humanos cuando hace falta.
+- **Atención al cliente 24/7**: Respuestas al instante en WhatsApp, Instagram y chat web con el tono de la marca y derivación a una persona cuando hace falta.
 - **Turnos y reservas automáticos**: Agenda, confirmación, reprogramación y recordatorios en Google Calendar sin intervención manual.
-- **Calificación de clientes y leads**: Preguntas inteligentes para separar curiosos de compradores reales y enviar resúmenes listos al CRM.
-- **Procesos internos**: Carga automática de datos en planillas y CRM, seguimiento de pedidos y notificaciones al equipo.
+- **Calificación de clientes y leads**: Preguntas contextuales para separar curiosos de compradores reales y enviar resúmenes listos al CRM.
+- **Automatización de procesos internos**: Carga automática de datos en planillas y CRM, seguimiento de pedidos y notificaciones al equipo.
 
 ## Rubros atendidos
 Inmobiliarias, clínicas y consultorios, restaurantes, gimnasios, academias, estética, e-commerce, hoteles, concesionarias y servicios profesionales.

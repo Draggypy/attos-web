@@ -1,10 +1,10 @@
 {
-  "name": "Attos — Agentes Humanos",
+  "name": "Attos — Agentes Humanos y Automatización de Sistemas",
   "short_name": "attos",
-  "description": "Agentes de IA conversacionales y automatización para negocios 24/7.",
+  "description": "Tu negocio, atendido por Agentes Humanos. Automatización de sistemas y atención 24/7.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#060608",
+  "background_color": "#000000",
   "theme_color": "#060608",
   "lang": "es",
   "icons": [
