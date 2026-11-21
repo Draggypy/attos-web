@@ -1,0 +1,22 @@
+# Attos — Agentes de IA y Servicios de Automatización
+
+> Tu negocio, atendido por Agentes Humanos. Agentes conversacionales con inteligencia artificial a medida para WhatsApp, Instagram y web 24/7.
+
+## Servicios principales
+- **Atención al cliente 24/7**: Respuestas al instante en WhatsApp, Instagram y chat web con el tono de la marca y derivación a humanos cuando hace falta.
+- **Turnos y reservas automáticos**: Agenda, confirmación, reprogramación y recordatorios en Google Calendar sin intervención manual.
+- **Calificación de clientes y leads**: Preguntas inteligentes para separar curiosos de compradores reales y enviar resúmenes listos al CRM.
+- **Procesos internos**: Carga automática de datos en planillas y CRM, seguimiento de pedidos y notificaciones al equipo.
+
+## Rubros atendidos
+Inmobiliarias, clínicas y consultorios, restaurantes, gimnasios, academias, estética, e-commerce, hoteles, concesionarias y servicios profesionales.
+
+## Cobertura e Idioma
+Español — Paraguay (base), Argentina, Chile, España, México, Colombia y Perú.
+
+## Contacto y Enlaces Oficiales
+- Web oficial: https://attos.me/
+- Instagram: https://www.instagram.com/attos.me/
+- WhatsApp: https://wa.me/595973319179
+- Correo: gianniscandriolo@gmail.com
+- Aviso legal y privacidad: https://attos.me/legal.html
